@@ -2,10 +2,14 @@
   (:require-macros [secretary.core :refer [defroute]])
   (:import goog.History)
   (:require
+   [clojure.string :as string]
    [secretary.core :as secretary]
    [goog.events :as events]
    [goog.history.EventType :as EventType]
    [reagent.core :as reagent]
+   [reagent.session :as session]
+   [vr.cwervo.homepage :as homepage]
+   [vr.cwervo.vr-capstone :as vr-capstone]
    ))
 
 
@@ -38,12 +42,12 @@
 
   (defroute "/" []
     (swap! app-state assoc :page :home))
-
   (defroute "/about" []
     (swap! app-state assoc :page :about))
 
   ;; add routes here
-
+  (defroute "/vr-capstone" []
+    (swap! app-state assoc :page :vr-capstone))
 
   (hook-browser-navigation!))
 
@@ -52,23 +56,16 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Pages
 
-(defn home [ratom]
-  (let [text (:text @ratom)]
-    [:div [:h1 "Home Page"]
-     [:p text "FIXME"]
-     [:a {:href "#/about"} "about page"]]))
-
 (defn about [ratom]
   [:div [:h1 "About Page"]
    [:a {:href "#/"} "home page"]])
-
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Initialize App
 
 (defmulti page identity)
-(defmethod page :home [] home)
+(defmethod page :home [] homepage/page)
+(defmethod page :vr-capstone [] vr-capstone/page)
 (defmethod page :about [] about)
 (defmethod page :default [] (fn [_] [:div]))
 
