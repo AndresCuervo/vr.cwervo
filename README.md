@@ -1,6 +1,9 @@
-# routes-test
+# VR.CWERVO
 
-A [reagent](https://github.com/reagent-project/reagent) application designed to ... well, that part is up to you.
+
+
+This is a little [Reagent](https://github.com/reagent-project/reagent) app
+combined with [A-Frame](https://aframe.io/) :)
 
 ## Development Mode
 
@@ -50,7 +53,8 @@ And then you can just statically export `resources/public` :)
 TODO:
 ---
 
-- [] Write a script to compile and push to gh-pages branch for easy deploy :)
-- [] Add the [Sass](https://github.com/vladh/lein-sassy) plugin for replicating
+- [ ] Write a script to compile and push to gh-pages branch for easy deploy :)
+- [x] Add the [Sass](https://github.com/vladh/lein-sassy) plugin for replicating
 front page styles of vr.cwervo.com
-- [] Port the front page of vr.cwervo.com to this!
+- [ ] Port the front page of vr.cwervo.com to this!
+- [ ] Port A-Frame JS to CLJSJS

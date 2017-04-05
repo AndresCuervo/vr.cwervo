@@ -28,6 +28,9 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Routes
+;; I think eventually you should replace this with the following, or maybe
+;; more precisely, add the Accountant library!
+;; https://gist.github.com/city41/aab464ae6c112acecfe1
 
 (defn hook-browser-navigation! []
   (doto (History.)
