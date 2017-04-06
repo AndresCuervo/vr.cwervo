@@ -1,6 +1,7 @@
 (defproject vr.cwervo "0.1.0-SNAPSHOT"
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [org.clojure/clojurescript "1.9.229"]
+                 ;; [org.clojure/core.async "0.3.442"] ;; Maybeeee
                  [reagent "0.6.0"]
                  [reagent-utils "0.2.1"]
                  [com.andrewmcveigh/cljs-time "0.4.0"]

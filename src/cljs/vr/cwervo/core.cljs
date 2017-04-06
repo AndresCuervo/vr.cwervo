@@ -9,7 +9,7 @@
    [reagent.core :as reagent]
    [reagent.session :as session]
    [vr.cwervo.homepage :as homepage]
-   [vr.cwervo.vr-capstone :as vr-capstone]
+   [vr.cwervo.scenes.vr-capstone :as vr-capstone]
    ))
 
 
@@ -41,7 +41,7 @@
     (.setEnabled true)))
 
 (defn app-routes []
-  (secretary/set-config! :prefix "#")
+  (secretary/set-config! :prefix "#") ;; TODO -ac This suxxxxx
 
   (defroute "/" []
     (swap! app-state assoc :page :home))
@@ -50,7 +50,7 @@
 
   ;; add routes here
   (defroute "/vr-capstone" []
-    (swap! app-state assoc :page :vr-capstone))
+      (swap! app-state assoc :page :vr-capstone))
 
   (hook-browser-navigation!))
 
@@ -68,6 +68,9 @@
 
 (defmulti page identity)
 (defmethod page :home [] homepage/page)
+;; (defmethod page :vr-capstone [] (do
+;;                                   (vr-capstone/add-scripts)
+;;                                   vr-capstone/page))
 (defmethod page :vr-capstone [] vr-capstone/page)
 (defmethod page :about [] about)
 (defmethod page :default [] (fn [_] [:div]))
